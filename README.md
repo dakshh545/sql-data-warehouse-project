@@ -16,7 +16,7 @@ Develop a modern data warehouse using **SQL Server** to consolidate sales data, 
 - **Scope:** Focus on the latest dataset only; historization of data is not required.
 - **Documentation:** Provide clear documentation of the data model to support both business stakeholders and analytics teams.
 - **Data Warehouse Architecture:**
--                  ┌─────────────────────┐
+-                ┌─────────────────────┐
                  │      CSV Files      │
                  │---------------------│
                  │ crm_cust_info.csv   │
