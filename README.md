@@ -15,6 +15,48 @@ Develop a modern data warehouse using **SQL Server** to consolidate sales data, 
 - **Integration:** Combine both sources into a single, user-friendly data model designed for analytical queries.
 - **Scope:** Focus on the latest dataset only; historization of data is not required.
 - **Documentation:** Provide clear documentation of the data model to support both business stakeholders and analytics teams.
+- **Data Warehouse Architecture:**
+-                  ┌─────────────────────┐
+                 │      CSV Files      │
+                 │---------------------│
+                 │ crm_cust_info.csv   │
+                 │ crm_prd_info.csv    │
+                 │ crm_sales_details   │
+                 │ ERP datasets        │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │     BRONZE LAYER    │
+                 │  (Raw Ingest Data)  │
+                 │---------------------│
+                 │ bronze.crm_cust_info│
+                 │ bronze.crm_prd_info │
+                 │ bronze.crm_sales    │
+                 │ bronze.erp_tables   │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │     SILVER LAYER    │
+                 │ (Cleaned & Joined)  │
+                 │---------------------│
+                 │ silver.customer_dim │
+                 │ silver.product_dim  │
+                 │ silver.sales_fact   │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │      GOLD LAYER     │
+                 │ (Business Analytics)│
+                 │---------------------│
+                 │ revenue analysis    │
+                 │ product performance │
+                 │ customer insights   │
+                 └─────────────────────┘
+
+
 
 ---
 
